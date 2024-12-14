@@ -1,0 +1,1 @@
+document.getElementsByClassName("caja")[3].innerHTML=`CUATRO`
