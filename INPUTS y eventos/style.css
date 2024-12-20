@@ -1,0 +1,7 @@
+label, input, div, button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+}
+input {
+    padding: 3px 8px 4px;
+}
