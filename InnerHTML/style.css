@@ -1,0 +1,9 @@
+*{
+    font-family: 'Monserrat', sans-serif;
+    margin: 2px;
+}
+
+.caja{
+    background-color: dodgerblue;
+    padding: 5px;
+}
