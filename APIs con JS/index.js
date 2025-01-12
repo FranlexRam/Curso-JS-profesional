@@ -1,6 +1,8 @@
 let urlAnterior;
 let urlPosterior="https://pokeapi.co/api/v2/pokemon?offset=0&limit=20";
 let contador=0;
+document.querySelectorAll("button")[0].addEventListener("click",anteriorPagina);
+document.querySelectorAll("button")[1].addEventListener("click",siguientePagina);
 
 siguientePagina();
 
@@ -10,6 +12,7 @@ function siguientePagina() {
 
 function anteriorPagina() {
     cargarDatos(urlAnterior);
+    contador-=40;
 }
 
 function cargarDatos(url) {
@@ -32,5 +35,8 @@ function mostrar(dato) {
                 </div>
                 `)
         )
+        urlAnterior=dato.previous;
+        urlPosterior=dato.next;
+
         console.log(dato);
 }
