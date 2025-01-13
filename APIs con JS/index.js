@@ -12,7 +12,7 @@ function siguientePagina() {
 
 function anteriorPagina() {
     cargarDatos(urlAnterior);
-    contador-=40;
+    contador-=40; //Esto no lo entendi muy bien
 }
 
 function cargarDatos(url) {
@@ -30,8 +30,8 @@ function mostrar(dato) {
         </div>`);
         dato.results.map(valor=>
             document.querySelector(".caja").insertAdjacentHTML("beforeend", `
-                <div class="linea">
-                    ${++contador} - <span class="pokemon">${valor.name}</span>
+                <div class="linea" onclick="leerPokemon(this)">
+                    <span class="numeroPokemon">${++contador}</span> - <span class="pokemon">${valor.name}</span>
                 </div>
                 `)
         )
@@ -39,4 +39,12 @@ function mostrar(dato) {
         urlPosterior=dato.next;
 
         console.log(dato);
+}
+
+function leerPokemon(foto) {
+    let nombre=document.querySelector(".numeroPokemon").innerText;
+    let urlPokemon=`https://pokeapi.co/api/v2/pokemon/${nombre}/`;
+    fetch(urlPokemon)
+    .then(respuesta=>respuesta.json())
+    .then(valor)
 }
