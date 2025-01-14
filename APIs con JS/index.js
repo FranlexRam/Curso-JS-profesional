@@ -42,9 +42,15 @@ function mostrar(dato) {
 }
 
 function leerPokemon(foto) {
-    let nombre=document.querySelector(".numeroPokemon").innerText;
-    let urlPokemon=`https://pokeapi.co/api/v2/pokemon/${nombre}/`;
+    let nombre=foto.querySelector(".pokemon").innerHTML;
+    let urlPokemon=`https://pokeapi.co/api/v2/pokemon/${nombre}`;
     fetch(urlPokemon)
     .then(respuesta=>respuesta.json())
-    .then(valor)
+    .then(valor => mostrarImagen(valor,nombre));
+}
+
+function mostrarImagen(valor,nombre) {
+    let img=valor.sprites.other.dream_world.front_default;
+    document.querySelector(".imagen").innerHTML=`<h3>${nombre}</h3>`
+    document.querySelector(".imagen").insertAdjacentHTML("beforeend",`<img src="${img}"/>`)
 }
