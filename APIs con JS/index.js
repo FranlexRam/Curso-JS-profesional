@@ -38,12 +38,20 @@ function mostrar(dato) {
         urlAnterior=dato.previous;
         urlPosterior=dato.next;
 
-        controlBotones();
+        controlBotones(); 
 
         console.log(dato);
 }
 
+function limpiarTodo() {
+    for (let k=0; k<document.querySelectorAll(".linea").length; k++) {
+        document.querySelectorAll(".linea")[k].style=null;
+    }
+}
+
 function leerPokemon(foto) {
+    limpiarTodo();
+    foto.style.color="red";
     let nombre=foto.querySelector(".pokemon").innerHTML;
     let urlPokemon=`https://pokeapi.co/api/v2/pokemon/${nombre}`;
     fetch(urlPokemon)
