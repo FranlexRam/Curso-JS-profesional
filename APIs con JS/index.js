@@ -38,6 +38,8 @@ function mostrar(dato) {
         urlAnterior=dato.previous;
         urlPosterior=dato.next;
 
+        controlBotones();
+
         console.log(dato);
 }
 
@@ -52,5 +54,26 @@ function leerPokemon(foto) {
 function mostrarImagen(valor,nombre) {
     let img=valor.sprites.other.dream_world.front_default;
     document.querySelector(".imagen").innerHTML=`<h3>${nombre}</h3>`
-    document.querySelector(".imagen").insertAdjacentHTML("beforeend",`<img src="${img}"/>`)
+    if (img) {
+        document.querySelector(".imagen").insertAdjacentHTML("beforeend",`<img src="${img}"/>`);
+    } else {
+        document.querySelector(".imagen").insertAdjacentHTML("beforeend",`(No hay imagen disponible para este Pokemon)`); 
+        
+    }
+}
+
+function controlBotones() {
+    const boton = document.querySelectorAll("button");
+    //if para el boton de ANTERIOR:
+    if (contador<=20) {
+        boton[0].style.visibility="hidden";
+    } else {
+        boton[0].style.visibility="visible";    
+    }
+    //if para el boton de SIGUIENTE:
+    if (contador>1280) {//Hay 1300 pokemon y va de 20 en 20
+        boton[1].style.visibility="hidden";
+    } else {
+        boton[1].style.visibility="visible";    
+    }
 }

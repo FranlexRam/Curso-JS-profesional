@@ -1,0 +1,14 @@
+section {
+    display: flex;
+}
+
+.linea {
+    cursor: pointer;
+}
+.linea:hover{
+    color: blue;
+}
+
+.caja {
+    margin: 40px;
+}
