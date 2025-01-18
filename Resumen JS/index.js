@@ -1,3 +1,20 @@
+ //Arrays de objetos:
+ let notasAlumnos = [
+    {
+        nota:10,
+        nombre:"Franlex"
+    },{
+        nota:4,
+        nombre:"Carlos"
+    },{
+        nota:5,
+        nombre:"Luis"
+    },{
+        nota:7,
+        nombre:"Eduardo"
+    }
+ ];
+ let notas = [5,7.6,8.2,6,2,8.7,2,7,3,0];
  let edad=18;
  const NOMBRE="Franlex";
  let lenguaje=true;
@@ -11,6 +28,7 @@
  //SELECTORES
  document.querySelectorAll("button")[0].addEventListener("click",contar);
 document.querySelectorAll("button")[1].addEventListener("click",saludar);
+document.querySelectorAll("button")[2].addEventListener("click",contarAlumno);
 
  function saludar() {
     let mensaje;
@@ -27,8 +45,18 @@ document.querySelectorAll("button")[1].addEventListener("click",saludar);
  }
 
  function contar() {
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i <notas.length ; i++) {
+        document.querySelector(".caja").innerHTML+=`
+        <div class="cajita">${notas[i]}</div>
+        `; 
+    }
+ }
+
+ function contarAlumno() {
+    for (let i = 0; i < notasAlumnos.length; i++) {
+        document.querySelector(".caja").innerHTML+=`
+        <div>${notasAlumnos[i].nombre} ha sacado: ${notasAlumnos[i].nota}! 💪🏿</div>
+        `
         
     }
-    document.querySelector(".caja").innerHTML=1;
  }
